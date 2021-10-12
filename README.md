@@ -2,4 +2,4 @@
 
 ## Informacion para servidor
 
-- Creado para Laragon.
+- Links para **Laragon**.
