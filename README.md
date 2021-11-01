@@ -2,7 +2,7 @@
 
 ## Informacion para servidor
 
-- Links para **Laragon**.
+- Probado con servidor PHP de desarrollo.
 - Base de datos MYSQL.
 
 ## Informacion del servicio
