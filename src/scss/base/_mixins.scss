@@ -29,7 +29,7 @@
     font-weight: 700;
     border: none;
     transition-property: background-color;
-    transition-duration: .3s;
+    transition-duration: .7s;
     text-align: center;
     display: block;
     width: 100%;
@@ -39,7 +39,7 @@
         width: auto;
     }
     &:hover {
-        background-color: darken( $bgColor, 10% );
+        background-color: darken( $bgColor, 13% );
         cursor: pointer;
     }
 }
