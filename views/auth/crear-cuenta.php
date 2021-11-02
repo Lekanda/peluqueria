@@ -4,19 +4,19 @@
 <form class="formulario" method="POST" action="/crear-cuenta">
     <div class="campo">
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Tu nombre">
+        <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" value="<?php echo s($usuario->nombre); ?>">
     </div>
     <div class="campo">
         <label for="apellido">Apellido</label>
-        <input type="text" name="apellido" id="apellido" placeholder="Tu apellido">
+        <input type="text" name="apellido" id="apellido" placeholder="Tu apellido" value="<?php echo s($usuario->apellido); ?>">
     </div>
     <div class="campo">
         <label for="telefono">Telefono</label>
-        <input type="tel" name="telefono" id="telefono" placeholder="Tu telefono">
+        <input type="tel" name="telefono" id="telefono" placeholder="Tu telefono" value="<?php echo s($usuario->telefono); ?>">
     </div>
     <div class="campo">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Tu email">
+        <input type="email" name="email" id="email" placeholder="Tu email" value="<?php echo s($usuario->email); ?>">
     </div>
     <div class="campo">
         <label for="password">Contraseña</label>
