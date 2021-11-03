@@ -73,7 +73,26 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+    // Revisa sí el usuario existe
+    public function existeUsuario(){
+        $query = " SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1";
+        
+        $resultado = self::$db->query($query);
+
+        if ($resultado->num_rows) {
+            self::$alertas['error'][] = 'El usuario ya existe';
+        }
+        
+       return $resultado;
+    }
+
+    // Funcion mia para convertir un dato de un obj a string
     // public function toString($pass){
     //     return $pass;
     // }
+
+
+
+
+
 }
