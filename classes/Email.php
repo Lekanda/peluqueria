@@ -6,15 +6,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class Email{
 
-    public $email;
     public $nombre;
+    public $email;
     public $token;
 
 
-    public function __construct($email, $nombre, $token)
+    public function __construct($nombre,$email,$token)
     {
-        $this->email = $email;
         $this->nombre = $nombre;
+        $this->email = $email;
         $this->token = $token;
     }
 
