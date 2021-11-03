@@ -34,10 +34,10 @@ class Usuario extends ActiveRecord{
     // validar
     public function validarNuevaCuenta(){
         if (!$this->nombre){
-            self::$alertas['error'][] = 'El nombre del cliente es obligatorio';
+            self::$alertas['error'][] = 'El nombre es obligatorio';
         }
         if (!$this->apellido){
-            self::$alertas['error'][] = 'El apellido del cliente es obligatorio';
+            self::$alertas['error'][] = 'El apellido es obligatorio';
         }
         if (!$this->email){
             self::$alertas['error'][] = 'El email  es obligatorio';
@@ -48,7 +48,32 @@ class Usuario extends ActiveRecord{
         if (!$this->password){
             self::$alertas['error'][] = 'El password  es obligatorio';
         }
+        if (strlen($this->password) < 6) {
+            self::$alertas['error'][] = 'El password  6 letras/numeros minimo';
+        }
+        /******************Ajuste mio para password mas fuerte***********************/
+        // $passwordString = $this->toString($this->password);
+        
+        // if(preg_match('`[a-z]`',$passwordString)){
+        //     echo 'matched';
+        // }else{
+        //     echo 'not matched';
+        // }
+
+
+        // $uppercase = preg_match('@[A-Z]@', $passwordString);
+        // $lowercase = preg_match('@[a-z]@', $passwordString);
+        // $number    = preg_match('@[0-9]@', $passwordString);
+
+        // if(!$uppercase || !$lowercase || !$number || strlen($passwordString) < 8) {
+        //     // tell the user something went wrong
+        //     self::$alertas['error'][] = 'Password 8 digitos, 1 letra may y una minus obligatoria';
+        // }
 
         return self::$alertas;
     }
+
+    // public function toString($pass){
+    //     return $pass;
+    // }
 }

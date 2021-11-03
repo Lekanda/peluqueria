@@ -36,6 +36,7 @@ class LoginController{
     public static function crear(Router $router){
 
         $usuario = new Usuario;
+
         // alertas vacias
         $alertas = [];
 
@@ -43,6 +44,12 @@ class LoginController{
 
             $usuario->sincronizar($_POST);
             $alertas = $usuario->validarNuevaCuenta();
+
+            // Revisar que alertas este vacio
+            if (empty($alertas)) {
+                
+            }
+
         }
         
 
