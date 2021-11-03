@@ -63,7 +63,7 @@ class LoginController{
 
                     // Enviar el email para confirmar la creacion de cuenta
                     $email = new Email($usuario->nombre,$usuario->email,$usuario->token);
-                    debuguear($email);
+                    $email->enviarConfirmacion();
                 }
             }
 
