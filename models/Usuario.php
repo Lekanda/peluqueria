@@ -93,6 +93,14 @@ class Usuario extends ActiveRecord{
     }
 
 
+    // Crear un token unico
+    public function crearToken(){
+        //uniqid: Da unos 13 digitos. Es para generar Ids pero vale para tokens
+        $this->token = uniqid();
+
+    }
+
+
 
 
     // Funcion mia para convertir un dato de un obj a string
