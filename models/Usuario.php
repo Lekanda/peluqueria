@@ -82,9 +82,18 @@ class Usuario extends ActiveRecord{
         if ($resultado->num_rows) {
             self::$alertas['error'][] = 'El usuario ya existe';
         }
-        
+
        return $resultado;
     }
+
+
+    // Hashear el password
+    public function hashPassword(){
+        $this->password = password_hash($this->password,PASSWORD_BCRYPT);
+    }
+
+
+
 
     // Funcion mia para convertir un dato de un obj a string
     // public function toString($pass){
