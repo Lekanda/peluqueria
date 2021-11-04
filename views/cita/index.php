@@ -10,7 +10,6 @@
     </nav>
 
 
-
     <div id="paso-1" class="seccion">
         <h2>Servicios</h2>
         <p class="text-center">Elige tus servicios a continuación</p>

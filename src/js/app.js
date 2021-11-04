@@ -1,6 +1,5 @@
 let paso = 1;
-let paso2 = 0;
-let paso3 = 0;
+
 
 document.addEventListener('DOMContentLoaded', function() {
     iniciarApp();
@@ -13,7 +12,20 @@ function iniciarApp() {
 }
 
 function mostrarSeccion() {
-    console.log('Mostrando seccion');
+    // Ocultar la seccion que tenga la clase de mostrar.
+    const seccionAnterior = document.querySelector('.mostrar');
+    if(seccionAnterior) {
+        seccionAnterior.classList.remove('mostrar');
+    }
+
+    // seleccionar la seccion con el paso
+    const pasoSelector = `#paso-${paso}`;
+    const seccion = document.querySelector(pasoSelector);
+    console.log(seccion);
+    seccion.classList.add('mostrar');
+
+    
+
 }
 
 function tabs() {
