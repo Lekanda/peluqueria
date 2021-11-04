@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function iniciarApp() {
-    
+    mostrarSeccion();
     tabs();//Cambia la seccion en /cita cuando presionas los tabs
 
 }
@@ -21,10 +21,17 @@ function mostrarSeccion() {
     // seleccionar la seccion con el paso
     const pasoSelector = `#paso-${paso}`;
     const seccion = document.querySelector(pasoSelector);
-    console.log(seccion);
     seccion.classList.add('mostrar');
 
-    
+    // Ocultar el tab que tenga la clase actual.
+    const tabAnterior = document.querySelector('.actual');
+    if(tabAnterior) {
+        tabAnterior.classList.remove('actual');
+    }
+
+    // cambiar el tab activo
+    const tab = document.querySelector(`[data-paso="${paso}"]`);
+    tab.classList.add('actual');
 
 }
 
