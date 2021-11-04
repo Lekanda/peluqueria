@@ -26,8 +26,8 @@ $router->post('/crear-cuenta',[LoginController::class, 'crear']);
 
 
 // Confirmar cuenta en el mail
-$router->get('/confirmar-cuenta',[LoginController::class, 'confirmar']);
 $router->get('/mensaje',[LoginController::class, 'mensaje']);
+$router->get('/confirmar-cuenta',[LoginController::class, 'confirmar']);
 
 
 /**********************************************************************/
