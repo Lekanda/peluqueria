@@ -65,9 +65,20 @@ class LoginController{
 
     public static function olvide(Router $router){
         
+        $alertas = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' ){
+            $auth = new Usuario($_POST);
+
+            $alertas = $auth->validarEmail();
+
+            if (empty($alertas)) {
+                
+            }
+        }
 
         $router->render('auth/olvide-password',[
-            
+            'alertas' => $alertas
         ]);
     }
 
