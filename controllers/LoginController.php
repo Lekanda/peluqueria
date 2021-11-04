@@ -80,9 +80,15 @@ class LoginController{
                     $usuario->crearToken();
                     // debuguear($usuario);
                     $usuario->guardar();
-                    // TODO:Enviar el email
 
+                    // Enviar Email
+                    $email = new Email($usuario->nombre,$usuario->email,$usuario->token);
+                    $email->enviarInstrucciones();
+
+                    // Alerta
                     Usuario::setAlerta('exito','Revisa tu email par seguir el proceso.');
+
+
                 } else {
                     Usuario::setAlerta('error','Cuente no existe o no esta confirmada');
                 }
