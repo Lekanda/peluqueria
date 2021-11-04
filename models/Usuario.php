@@ -114,6 +114,15 @@ class Usuario extends ActiveRecord{
 
     }
 
+    // Verificar Passwword
+    public function comprobarPasswordAndVerificado(){
+        
+    }
+
+
+
+
+
 
 
 
