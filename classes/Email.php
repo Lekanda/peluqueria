@@ -4,6 +4,7 @@ namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMailer;
 
+
 class Email{
 
     public $nombre;
@@ -18,8 +19,9 @@ class Email{
         $this->token = $token;
     }
 
-    public function enviarConfirmacion(){
+    
 
+    public function enviarConfirmacion(){
         // Crear el objeto del mail
         $mail = new PHPMailer();
         $mail->isSMTP();
