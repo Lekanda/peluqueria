@@ -96,7 +96,16 @@ class Usuario extends ActiveRecord{
     }
 
 
-
+    // Validar el password
+    public function validarPassword(){
+        if (!$this->password){
+            self::$alertas['error'][] = 'El password  es obligatorio';
+        }
+        if (strlen($this->password) < 6) {
+            self::$alertas['error'][] = 'El password  6 letras/numeros minimo';
+        }
+        return self::$alertas;
+    }
 
 
     // Revisa sí el usuario existe
