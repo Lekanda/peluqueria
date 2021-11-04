@@ -20,7 +20,9 @@ class LoginController{
                 $usuario=Usuario::where('email',$auth->email);
                 if($usuario){
                     // Verificar Password
-                    $usuario->comprobarPasswordAndVerificado($auth->password);
+                    if ($usuario->comprobarPasswordAndVerificado($auth->password)) {
+                        
+                    }
                     
                 } else {
                     // Alerta de usuario incorrecto
