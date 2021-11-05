@@ -99,7 +99,6 @@ async function consultarAPI() {
     try {
         const url = 'http://localhost:5000/api/servicios';
         const resultado = await fetch(url);
-        console.log(resultado);
         // convierte el resultado en un json
         const servicios = await resultado.json();
         mostrarServicios(servicios);
@@ -112,10 +111,22 @@ function mostrarServicios(servicios) {
     servicios.forEach(servicio => {
         const { id, nombre, precio} = servicio;
         
-        
+        const nombreServicio = document.createElement('P');
+        nombreServicio.classList.add('nombre-servicio');
+        nombreServicio.textContent = nombre;
+
+        const precioServicio = document.createElement('P');
+        precioServicio.classList.add('precio-servicio');
+        precioServicio.textContent = `$${precio}`;
+
+        const servicioDiv = document.createElement('DIV');
+        servicioDiv.classList.add('servicio');
+        servicioDiv.dataset.idServicio = id;
+
+        servicioDiv.appendChild(nombreServicio);
+        servicioDiv.appendChild(precioServicio);
+        // agregar el servicio al DOM
+        document.querySelector('#servicios').appendChild(servicioDiv);
     });
 }
-
-    
-
 
