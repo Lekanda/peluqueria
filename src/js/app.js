@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function iniciarApp() {
     mostrarSeccion();
     tabs();//Cambia la seccion en /cita cuando presionas los tabs
+    botonesPaginador(); // agrega o quita los botones del paginador
 
 }
 
@@ -41,10 +42,26 @@ function tabs() {
         boton.addEventListener('click', function(e) {
             // dataset enlaza con data-paso en cita/index.php
             paso = parseInt(e.target.dataset.paso);
-
             mostrarSeccion();
+            botonesPaginador();
         });
     });
-
-    console.log(botones);
 }
+
+function botonesPaginador() {
+    const paginaAnterior = document.querySelector('#anterior');
+    const paginaSiguiente = document.querySelector('#siguiente');
+    if (paso === 1) {
+        paginaAnterior.classList.add('ocultar');
+        paginaSiguiente.classList.remove('ocultar');
+    } else if (paso === 3) {
+        paginaSiguiente.classList.add('ocultar');
+        paginaAnterior.classList.remove('ocultar');
+    } else {
+        paginaAnterior.classList.remove('ocultar');
+        paginaSiguiente.classList.remove('ocultar');
+    }
+
+}
+
+
