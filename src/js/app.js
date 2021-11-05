@@ -11,8 +11,9 @@ function iniciarApp() {
     mostrarSeccion();
     tabs();//Cambia la seccion en /cita cuando presionas los tabs
     botonesPaginador(); // agrega o quita los botones del paginador
-    paginaSiguiente();
-    paginaAnterior();
+    paginaSiguiente(); // Botones para pasar pagina siguiente
+    paginaAnterior(); // Botones para pasar pagina anterior
+    consultarAPI(); // consulta la api en el backend de PHP
 }
 
 function mostrarSeccion() {
@@ -92,6 +93,29 @@ function paginaSiguiente() {
         botonesPaginador();
     });
 }
+
+// Consultar API
+async function consultarAPI() {
+    try {
+        const url = 'http://localhost:5000/api/servicios';
+        const resultado = await fetch(url);
+        console.log(resultado);
+        // convierte el resultado en un json
+        const servicios = await resultado.json();
+        mostrarServicios(servicios);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function mostrarServicios(servicios) {
+    servicios.forEach(servicio => {
+        const { id, nombre, precio} = servicio;
+        
+        
+    });
+}
+
     
 
 
