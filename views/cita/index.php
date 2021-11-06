@@ -37,6 +37,7 @@
                 <input 
                     id="fecha"
                     type="date"
+                    min="<?php echo date('Y-m-d',strtotime('+1 day')); ?>"
                 />
             </div>
             <div class="campo">
@@ -44,6 +45,8 @@
                 <input 
                     id="hora"
                     type="time"
+                    min="08:00"
+                    max="20:00"
                 />
             </div>
         </form>
