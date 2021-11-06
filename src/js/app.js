@@ -23,6 +23,7 @@ function iniciarApp() {
     consultarAPI(); // consulta la api en el backend de PHP
     nombreCliente(); // agrega el nombre del cliente a la cita
     seleccionarFecha(); // agrega la fecha a la cita nueva
+    seleccionarHora(); // agrega la hora a la cita nueva
 }
 
 function mostrarSeccion() {
@@ -177,7 +178,6 @@ function seleccionarFecha(){
     const inputFecha = document.querySelector('#fecha');
     inputFecha.addEventListener('input', function(e) {
         const dia = new Date(e.target.value).getUTCDay();
-        console.log(dia);
         if([6,0].includes(dia)) {
             e.target.value = '';
             mostrarAlerta('Sabados y Domingos cerrados','error');
@@ -187,12 +187,11 @@ function seleccionarFecha(){
             if(alertaPrevia) {
                 alertaPrevia.remove();
             }
-            console.log(cita);
         }
 
         cita.fecha = e.target.value;
+        console.log(cita);
     });
-    console.log(cita);
 }
 function mostrarAlerta(mensaje, tipo) {
     // Previene que se muestre más de una alerta
@@ -212,4 +211,25 @@ function mostrarAlerta(mensaje, tipo) {
         alerta.remove();
     }, 3000);
 
+}
+
+
+function seleccionarHora(){
+    const inputHora = document.querySelector('#hora');
+    inputHora.addEventListener('input', function(e) {
+        const  horaCita = e.target.value;
+        const hora = horaCita.split(':')[0];
+        if(hora < 10 || hora > 18) {
+            e.target.value = '';
+            mostrarAlerta('Horario no disponible','error');
+        } else {
+            cita.hora = e.target.value;
+            console.log(cita);
+            const alertaPrevia = document.querySelector('.alerta');
+            if(alertaPrevia) {
+                alertaPrevia.remove();
+            }
+
+        }
+    });
 }
