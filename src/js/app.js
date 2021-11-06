@@ -109,7 +109,7 @@ function paginaSiguiente() {
 // Consultar API
 async function consultarAPI() {
     try {
-        const url = 'http://localhost:5000/api/servicios';
+        const url = 'http://127.0.0.1:5000/api/servicios';
         const resultado = await fetch(url);
         // convierte el resultado en un json
         const servicios = await resultado.json();
@@ -319,7 +319,6 @@ function mostrarResumen() {
     resumen.appendChild(horaCita);
     resumen.appendChild(botonReservar);
 }
-
 
 function reservaCita() {
     const datos = new FormData();

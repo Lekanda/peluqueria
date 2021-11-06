@@ -13,6 +13,16 @@ class APIController{
         // debuguear($servicios);
         echo json_encode($servicios);
     }
+
+
+    // Metodo para guardar citas desde app.js
+    public static function guardar(){
+        $respuesta = [
+            'mensaje' => 'Todo Ok'
+        ];
+
+        echo json_encode($respuesta);
+    }
 }
 
 
