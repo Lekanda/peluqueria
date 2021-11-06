@@ -175,13 +175,14 @@ function nombreCliente() {
 }
 
 
+
 function seleccionarFecha(){
     const inputFecha = document.querySelector('#fecha');
     inputFecha.addEventListener('input', function(e) {
         const dia = new Date(e.target.value).getUTCDay();
         if([6,0].includes(dia)) {
             e.target.value = '';
-            mostrarAlerta('Sabados y Domingos cerrados','error');
+            mostrarAlerta('Sabados y Domingos cerrados','error', '.formulario');
         } else {
             cita.fecha = e.target.value;
             const alertaPrevia = document.querySelector('.alerta');
@@ -193,7 +194,10 @@ function seleccionarFecha(){
         cita.fecha = e.target.value;
     });
 }
-function mostrarAlerta(mensaje, tipo) {
+
+
+
+function mostrarAlerta(mensaje, tipo, elemento,desaparece = true) {
     // Previene que se muestre más de una alerta
     const alertaPrevia = document.querySelector('.alerta');
     if(alertaPrevia) {
@@ -204,13 +208,15 @@ function mostrarAlerta(mensaje, tipo) {
     const alerta = document.createElement('DIV');
     alerta.textContent = mensaje;
     alerta.classList.add('alerta', tipo);
-    document.querySelector('#paso-2 p').appendChild(alerta);
+    document.querySelector(elemento).appendChild(alerta);
 
-    // Eliminar la alerta después de 3 segundos
-    setTimeout(() => {
-        alerta.remove();
-    }, 3000);
-
+    // Desaparece: para que la alarma no desaparezca
+    if(desaparece) {
+        // Eliminar la alerta después de 3 segundos
+        setTimeout(() => {
+            alerta.remove();
+        }, 3000);
+    }
 }
 
 
@@ -221,7 +227,7 @@ function seleccionarHora(){
         const hora = horaCita.split(':')[0];
         if(hora < 10 || hora > 18) {
             e.target.value = '';
-            mostrarAlerta('Horario no disponible','error');
+            mostrarAlerta('Horario no disponible','error', '.formulario');
         } else {
             cita.hora = e.target.value;
             const alertaPrevia = document.querySelector('.alerta');
@@ -236,11 +242,11 @@ function seleccionarHora(){
 // Muestra el resumen
 function mostrarResumen() {
     // Selecionar el div de resumen
-    const resumen = document.querySelector('#contenido-resumen');
-    console.log(cita.servicios.length);
-    if(Object.values(cita).includes('')) {
-        console.log('Hacen  falta datos');
+    const resumen = document.querySelector('.contenido-resumen');
+    console.log(cita);
+    if(Object.values(cita).includes('') || cita.servicios.length === 0) {
+        mostrarAlerta('Hacen  falta datos o Servicios','error', '.contenido-resumen',false);
     } else {
-        console.log('Todo bien');
+        
     }
 }
