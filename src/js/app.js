@@ -180,12 +180,36 @@ function seleccionarFecha(){
         console.log(dia);
         if([6,0].includes(dia)) {
             e.target.value = '';
+            mostrarAlerta('Sabados y Domingos cerrados','error');
         } else {
             cita.fecha = e.target.value;
+            const alertaPrevia = document.querySelector('.alerta');
+            if(alertaPrevia) {
+                alertaPrevia.remove();
+            }
             console.log(cita);
         }
 
         cita.fecha = e.target.value;
     });
     console.log(cita);
+}
+function mostrarAlerta(mensaje, tipo) {
+    // Previene que se muestre más de una alerta
+    const alertaPrevia = document.querySelector('.alerta');
+    if(alertaPrevia) {
+        alertaPrevia.remove();
+    }
+
+    //  Crear el DIV de la alerta
+    const alerta = document.createElement('DIV');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta', tipo);
+    document.querySelector('#paso-2 p').appendChild(alerta);
+
+    // Eliminar la alerta después de 3 segundos
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
+
 }
