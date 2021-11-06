@@ -135,6 +135,7 @@ function mostrarServicios(servicios) {
 
         servicioDiv.appendChild(nombreServicio);
         servicioDiv.appendChild(precioServicio);
+
         // agregar el servicio al DOM
         document.querySelector('#servicios').appendChild(servicioDiv);
     });
@@ -142,12 +143,24 @@ function mostrarServicios(servicios) {
 
 
 function seleccionarServicio(servicio) {
+    // servicio seleccionado con click
     const { id } = servicio;
+    // coger de  cita los servicios (array con datos de nueva cita)
     const { servicios } = cita;
-    cita.servicios = [...servicios, servicio];
 
+    // Identificar el elemento al que se le da click
     const divServicio = document.querySelector(`[data-id-servicio = "${id}"]`);
-    divServicio.classList.add('seleccionado');
-    console.log(servicio);
-    
+
+    // Comprueba si el servicio ya esta seleccionado en el array de servicios agregados
+    if (servicios.some((agregado) => agregado.id === id)) {
+        // Eliminarlos del array de servicios agregados
+        cita.servicios = servicios.filter((agregado) => agregado.id !== id);
+        divServicio.classList.remove('seleccionado');
+    } else {
+        // Agregar el servicio al array de servicios agregados
+        cita.servicios = [...servicios, servicio];
+        divServicio.classList.add('seleccionado');
+    }
+
+    console.log(cita);
 }
