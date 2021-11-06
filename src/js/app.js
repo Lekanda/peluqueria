@@ -24,6 +24,7 @@ function iniciarApp() {
     nombreCliente(); // agrega el nombre del cliente a la cita
     seleccionarFecha(); // agrega la fecha a la cita nueva
     seleccionarHora(); // agrega la hora a la cita nueva
+    mostrarResumen(); // muestra el resumen de la cita
 }
 
 function mostrarSeccion() {
@@ -71,6 +72,7 @@ function botonesPaginador() {
     } else if (paso === 3) {
         paginaSiguiente.classList.add('ocultar');
         paginaAnterior.classList.remove('ocultar');
+        mostrarResumen();
     } else {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
@@ -165,7 +167,6 @@ function seleccionarServicio(servicio) {
         divServicio.classList.add('seleccionado');
     }
 
-    console.log(cita);
 }
 
 
@@ -190,7 +191,6 @@ function seleccionarFecha(){
         }
 
         cita.fecha = e.target.value;
-        console.log(cita);
     });
 }
 function mostrarAlerta(mensaje, tipo) {
@@ -224,7 +224,6 @@ function seleccionarHora(){
             mostrarAlerta('Horario no disponible','error');
         } else {
             cita.hora = e.target.value;
-            console.log(cita);
             const alertaPrevia = document.querySelector('.alerta');
             if(alertaPrevia) {
                 alertaPrevia.remove();
@@ -232,4 +231,16 @@ function seleccionarHora(){
 
         }
     });
+}
+
+// Muestra el resumen
+function mostrarResumen() {
+    // Selecionar el div de resumen
+    const resumen = document.querySelector('#contenido-resumen');
+    console.log(cita.servicios.length);
+    if(Object.values(cita).includes('')) {
+        console.log('Hacen  falta datos');
+    } else {
+        console.log('Todo bien');
+    }
 }
