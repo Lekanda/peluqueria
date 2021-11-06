@@ -322,5 +322,8 @@ function mostrarResumen() {
 
 
 function reservaCita() {
-    
+    const datos = new FormData();
+    datos.append('nombre', 'andres');
+
+    // console.log([...datos]);
 }
