@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', 'root', 'appsalon_mvc');
+$db = mysqli_connect('127.0.0.1', 'root', 'root', 'appsalon_mvc');
 
 mysqli_set_charset($db, 'utf8');
 

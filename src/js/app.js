@@ -247,7 +247,6 @@ function mostrarResumen() {
     while(resumen.firstChild) {
         resumen.removeChild(resumen.firstChild);
     }
-    console.log(cita);
     if(Object.values(cita).includes('') || cita.servicios.length === 0) {
         mostrarAlerta('Hacen  falta datos o Servicios','error', '.contenido-resumen',false);
         return;
@@ -321,8 +320,20 @@ function mostrarResumen() {
 }
 
 async function reservaCita() {
+    const {nombre,fecha,hora,servicios} = cita;
+    console.log('datos de cita');
+    console.log(cita);
+
+    // .map: Itera y crea un nuevo array con los id de los servicios guardados en servicios de cita
+    const idServicios = servicios.map(servicio => servicio.id);
+    // console.log(idServicios);
+
     const datos = new FormData();
-    datos.append('nombre', 'andres');
+    datos.append('nombre', nombre);
+    datos.append('fecha', fecha);
+    datos.append('hora', hora);
+    datos.append('servicios', idServicios);
+    console.log([...datos]);
 
     // Peticion a la API
     const url = 'http://127.0.0.1:5000/api/citas';
@@ -334,6 +345,4 @@ async function reservaCita() {
     const resultado = await respuesta.json();
 
     console.log(resultado);
-
-    // console.log([...datos]);
 }

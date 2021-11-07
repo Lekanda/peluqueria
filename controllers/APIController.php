@@ -14,7 +14,6 @@ class APIController{
         echo json_encode($servicios);
     }
 
-
     // Metodo para guardar citas desde app.js
     public static function guardar(){
         $respuesta = [
