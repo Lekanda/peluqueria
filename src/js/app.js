@@ -320,9 +320,19 @@ function mostrarResumen() {
     resumen.appendChild(botonReservar);
 }
 
-function reservaCita() {
+async function reservaCita() {
     const datos = new FormData();
     datos.append('nombre', 'andres');
+
+    // Peticion a la API
+    const url = 'http://127.0.0.1:5000/api/citas';
+
+    const respuesta = await fetch(url, {
+        method: 'POST',
+    });
+    const resultado = await respuesta.json();
+
+    console.log(resultado);
 
     // console.log([...datos]);
 }
