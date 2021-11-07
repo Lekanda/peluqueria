@@ -18,7 +18,7 @@ class APIController{
     // Metodo para guardar citas desde app.js
     public static function guardar(){
         $respuesta = [
-            'mensaje' => 'Todo Ok'
+            'datos' => $_POST
         ];
 
         echo json_encode($respuesta);
