@@ -10,11 +10,11 @@ class CitaController{
         if(!isset($_SESSION)){ 
             session_start(); 
         } 
-        $nombre = $_SESSION['nombre'] ?? '';
 
 
         $router->render('cita/index',[
-            'nombre' => $nombre
+            'nombre' => $_SESSION['nombre'] ?? '',
+            'id' => $_SESSION['id'] ?? ''
         ]);
     }
 
