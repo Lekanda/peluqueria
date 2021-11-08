@@ -15,15 +15,15 @@ class AdminCita extends ActiveRecord{
     public $servicio;
     public $precio;    
     
-    public function __construct($id,$hora,$cliente,$email,$telefono,$servicio,$precio)
+    public function __construct($args=[])
     {
-        $this->id = $id ?? null;
-        $this->hora = $hora ?? '';
-        $this->cliente = $cliente ?? '';
-        $this->email = $email ?? '';
-        $this->telefono = $telefono ?? '';
-        $this->servicio = $servicio ?? '';
-        $this->precio = $precio ?? '';
+        $this->id = $args['id'] ?? null;
+        $this->hora = $args['hora'] ?? '';
+        $this->cliente = $args['cliente'] ?? '';
+        $this->email = $args['email'] ?? '';
+        $this->telefono = $args['telefono'] ?? '';
+        $this->servicio = $args['servicio'] ?? '';
+        $this->precio = $args['precio'] ?? '';
     }
 
 }
