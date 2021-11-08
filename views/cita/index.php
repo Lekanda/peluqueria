@@ -1,5 +1,8 @@
 <h1 class="nombre-pagina">Crear Cita</h1>
 <p class="descripcion-pagina">Elije tus servicios a continuacion y pon tus datos</p>
+<div class="barra">
+    <p>Hola: <?php echo $nombre ?? ''; ?></p>
+</div>
 
 <div id="app">
 
