@@ -2,6 +2,8 @@
 <p class="descripcion-pagina">Elije tus servicios a continuacion y pon tus datos</p>
 <div class="barra">
     <p>Hola: <?php echo $nombre ?? ''; ?></p>
+
+    <a class="boton" href="/logout">Cerrar Sesion</a>
 </div>
 
 <div id="app">

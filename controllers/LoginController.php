@@ -58,7 +58,12 @@ class LoginController{
     }
 
     public static function logout(){
-        echo 'Desde logout';
+        if(!isset($_SESSION)){ 
+            session_start(); 
+        } 
+        $_SESSION = [];
+        // debuguear($_SESSION);
+        header('Location: /');
     }
 
 
@@ -225,9 +230,4 @@ class LoginController{
             'alertas' => $alertas
         ]);
     }
-
-
-
-
-
 }
