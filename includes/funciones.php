@@ -20,6 +20,13 @@ function isAuth() : void {
     } 
 }
 
+// Funcion para saber si eres administrador
+function isAdmin() : void {
+    if(!isset($_SESSION['admin'])) {
+        header('Location: /');
+    }
+}
+
 
 // Funcion para saber cuando no hay mas servicios en la misma cita para /admin
 function esUltimo(string $actual, string $proximo): bool{
