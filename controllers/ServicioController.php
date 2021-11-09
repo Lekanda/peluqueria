@@ -12,8 +12,13 @@ class ServicioController{
         if(!isset($_SESSION)){ 
             session_start(); 
         } 
+
+        $servicios = Servicio::all();
+
+
         $router->render('servicios/index',[
             'nombre' => $_SESSION['nombre'],
+            'servicios' => $servicios
 
         ]);
     }
