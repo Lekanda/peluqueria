@@ -58,7 +58,7 @@ class ServicioController{
             session_start(); 
         } 
         if(!is_numeric($_GET['id'])) return;
-        
+
         $servicio = Servicio::find($_GET['id']);
         $alertas = [];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -83,11 +83,18 @@ class ServicioController{
 
 
     
-    public static function eliminar(Router $router){
+    public static function eliminar(){
+        $id = $_POST['id'];
+        $servicio = Servicio::find($id);
+        // debuguear($servicio);
+        $servicio->eliminar();
+        header('Location: /servicios');
+        
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
         }
 
-        $router->render('servicios/eliminar',[]);
+        
     }
 }
