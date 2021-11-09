@@ -16,5 +16,19 @@ class Servicio extends ActiveRecord{
         $this->nombre = $args['nombre'] ?? '';
         $this->precio = $args['precio'] ?? '';
     }
+
+    public function validar(){
+        if(!$this->nombre){
+            self::$alertas['error'][] = 'El nombre no puede estar vacío';
+        }
+        if(!$this->precio){
+            self::$alertas['error'][] = 'El precio no puede estar vacío';
+        }
+        if(!is_numeric($this->precio)){
+            self::$alertas['error'][] = 'No es un formato valido de precio';
+        }
+        return self::$alertas;
+    }
+
 }
 
