@@ -21,7 +21,7 @@ function isAuth() : void {
 }
 
 
-// Funcion para saber cuando no hay mas servicios en la misma cita
+// Funcion para saber cuando no hay mas servicios en la misma cita para /admin
 function esUltimo(string $actual, string $proximo): bool{
     if ($actual !== $proximo) {
         return true;
