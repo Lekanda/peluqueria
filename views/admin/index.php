@@ -56,6 +56,13 @@
                             $proximo = $citas[$key + 1]->id ?? 0;
                             if (esUltimo($actual, $proximo)) {?>
                                 <p class="total">Total: <span>€  <?php echo $total; ?></span></p>
+
+                                <form method="POST" action="/api/eliminar">
+                                    <input type="hidden" name="id" value="<?php echo $cita->id; ?>">
+                                    <input type="submit" class="boton-eliminar" value="Eliminar">
+                                </form>
+
+
                             <?php } ?>
                     
         <?php } ?>

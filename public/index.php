@@ -43,6 +43,7 @@ $router->get('/admin',[AdminController::class, 'index']);
 /********************* API CITAS ************************/
 $router->get('/api/servicios',[APIController::class, 'index']);
 $router->post('/api/citas',[APIController::class, 'guardar']);
+$router->post('/api/eliminar',[APIController::class, 'eliminar']);
 /********************************************************/
 
 
