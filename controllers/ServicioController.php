@@ -12,6 +12,7 @@ class ServicioController{
         if(!isset($_SESSION)){ 
             session_start(); 
         } 
+        isAdmin();
 
         $servicios = Servicio::all();
 
@@ -30,6 +31,7 @@ class ServicioController{
         if(!isset($_SESSION)){ 
             session_start(); 
         } 
+        isAdmin();
 
         $servicio = new Servicio();
         $alertas = [];
@@ -57,6 +59,7 @@ class ServicioController{
         if(!isset($_SESSION)){ 
             session_start(); 
         } 
+        isAdmin();
         if(!is_numeric($_GET['id'])) return;
 
         $servicio = Servicio::find($_GET['id']);
@@ -84,6 +87,10 @@ class ServicioController{
 
     
     public static function eliminar(){
+        if(!isset($_SESSION)){ 
+            session_start(); 
+        } 
+        isAdmin();
         $id = $_POST['id'];
         $servicio = Servicio::find($id);
         // debuguear($servicio);
