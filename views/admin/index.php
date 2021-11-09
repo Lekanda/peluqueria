@@ -14,10 +14,17 @@
                 name="fecha" 
                 id="fecha"
                 value="<?php echo $fecha; ?>"
+                min="<?php echo date('Y-m-d',strtotime('+1 day')); ?>"
             >
         </div>
     </form>
 </div>
+
+<?php 
+    if(count($citas) === 0) {
+        echo"<h2>No hay citas para esta fecha</h2>";
+    }
+?>
 
 <div id="citas-admin">
     <ul class="citas">
