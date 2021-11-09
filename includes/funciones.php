@@ -19,3 +19,13 @@ function isAuth() : void {
         header('Location: /');
     } 
 }
+
+
+// Funcion para saber cuando no hay mas servicios en la misma cita
+function esUltimo(string $actual, string $proximo): bool{
+    if ($actual !== $proximo) {
+        return true;
+    } else {
+        return false;
+    }
+}
